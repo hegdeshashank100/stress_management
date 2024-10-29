@@ -1,0 +1,386 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('backgroung.jpg'); /* Update with your image path */
+    background-size: cover; /* Makes the image cover the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background steady */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, rgba(40, 53, 147, 0.8), rgba(63, 81, 181, 0.8));
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed; /* Keeps header fixed at the top */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+    width: 100%; /* Ensure full width */
+}
+
+header:hover {
+    background: linear-gradient(135deg, rgba(63, 81, 181, 0.8), rgba(40, 53, 147, 0.8));
+}
+
+header h1 {
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+}
+
+header h1 .highlight {
+    color: #00f7d2;
+}
+
+/* Desktop Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav ul li {
+    list-style: none;
+    position: relative;
+}
+
+nav a {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(88, 71, 71, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Dropdown Menu */
+.dropdown .dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(53, 56, 75, 0.9);
+    min-width: 160px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    /* Hide desktop navigation and display menu button */
+    nav ul {
+        display: none; /* Hide full menu initially */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav .menu-button {
+        display: inline-block;
+        font-size: 1.5em;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px;
+        margin-right: 10px;
+        transition: color 0.3s ease;
+    }
+
+    nav .menu-button:hover {
+        color: #00f7d2;
+    }
+
+    /* Show menu when button is clicked */
+    nav.active ul {
+        display: flex;
+    }
+
+    /* Dropdown content adjustments */
+    .dropdown-content {
+        position: static;
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
+/* Contact Form Styles */
+.contact-container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 3em;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 5em auto;
+    text-align: center;
+}
+
+.contact-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+}
+
+.contact-container p {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+}
+
+.contact-container .success-message {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.contact-container .error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.form-group {
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #333;
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: #12aef1;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #150089;
+}
+/* Footer Styling */
+.footer {
+    background: #2c3e50;
+    color: #f5f5f5;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Footer Content Sections */
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-section h2 {
+    color: #ecf0f1;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+/* Footer Links */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 8px 0;
+}
+
+.footer-section ul li a {
+    color: #b8c6db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #3498db;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background: #1a252f;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #ecf0f1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Footer Animation */
+.footer-section h2:before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background: #3498db;
+    bottom: -10px;
+    left: 0;
+    transition: width 0.4s;
+}
+
+.footer-section h2:hover:before {
+    width: 100%;
+}
+
+.footer-section.about p {
+    font-size: 0.95em;
+    line-height: 1.6em;
+    color: #b8c6db;
+    max-width: 350px;
+    transition: transform 0.3s ease;
+}
+
+.footer-section.about p:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer Link Hover Effect */
+.footer-section ul li a {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section ul li a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #3498db;
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+.footer-section ul li a:hover:after {
+    transform: scaleX(1);
+}
+
+/* Footer Bottom - Small Gradient Animation */
+.footer-bottom::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #8e44ad, #3498db);
+    top: 0;
+    left: -50%;
+    animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        left: -50%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-section {
+        margin: 15px 0;
+    }
+}

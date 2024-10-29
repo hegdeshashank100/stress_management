@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHD Test Results</title>
+    <link rel="stylesheet" href="result.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../../index.php">Home</a>
+            <a href="../../healthtest.php">Back</a>
+        </nav>
+    </header>
+    
+    <div class="results-container">
+        <h2>Your ADHD Score</h2>
+        <canvas id="adhdResult" width="400" height="400" aria-label="ADHD Test Result Chart" role="img"></canvas>
+        <p>Your score is: <strong id="score"></strong></p>
+        <p>Based on your score, consider seeking further evaluation.</p>
+    </div>
+
+    <script>
+        // Retrieve the ADHD score from localStorage and check if it exists
+        let score = localStorage.getItem("adhdScore");
+        if (!score) {
+            score = 0; // Default score if none is found
+        }
+        document.getElementById("score").innerText = score;
+
+        // Setup the chart
+        const ctx = document.getElementById('adhdResult').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['ADHD Level', 'Normal'],
+                datasets: [{
+                    label: 'ADHD Score',
+                    data: [score, 100 - score],
+                    backgroundColor: ['#FF6384', '#9AD0F5'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
